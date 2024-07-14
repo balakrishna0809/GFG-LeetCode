@@ -1,0 +1,25 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int n=nums.length-1;
+        for(int i=0 ; i< k; i++){
+            int temp=nums[n];
+            for(int j=0; j<n; j++){
+                nums[n-j]=nums[n-j-1];
+            }
+            nums[0]=temp;
+        }
+    }
+}-----Time Limit Exceeded 37/38 testcases
+
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int[] ans=new int[nums.length];
+        for(int i=0; i<nums.length; i++){
+        ans[(i+k)%ans.length]=nums[i];
+        }
+        for(int j=0; j<nums.length; j++){
+            nums[j]=ans[j];
+        }
+    }
+}------Accepted
